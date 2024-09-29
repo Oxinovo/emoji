@@ -21,7 +21,7 @@ export class Game {
     this.progression.updateUi();
     Util.drawText(
       this.info,
-      'press the roll button (🕹️) when you are ready to play.'
+      this.gameSettings.greeting
     );
     document
       .querySelector('.game .roll')
