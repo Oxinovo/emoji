@@ -3,7 +3,7 @@ import * as Util from './util.js';
 
 export class Catalog {
   constructor(symbolSources) {
-    this.symbolSources = symbolSources || ['./symbol.js'];
+    this.symbolSources = symbolSources;
   }
   async updateSymbols() {
     this.symbols = new Map();

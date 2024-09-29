@@ -111,6 +111,9 @@ export class Balloon extends Symb {
   descriptionLong() {
     return 'this is a balloon. it gives you 💵20, but it has a 50% chance of popping and disappearing.';
   }
+  categories() {
+    return [CATEGORY_UNBUYABLE];
+  }
 }
 
 export class Butter extends Symb {
@@ -131,7 +134,7 @@ export class Butter extends Symb {
     return 7 - this.turns;
   }
   categories() {
-    return [CATEGORY_FOOD];
+    return [CATEGORY_FOOD, CATEGORY_UNBUYABLE];
   }
   description() {
     return 'x3 to neighboring 🍿<br>melts after 7 turns';
@@ -178,7 +181,7 @@ export class Bug extends Symb {
     }
   }
   categories() {
-    return [CATEGORY_ANIMAL];
+    return [CATEGORY_ANIMAL, CATEGORY_UNBUYABLE];
   }
   counter(game) {
     return 5 - this.turns;
@@ -200,6 +203,9 @@ export class BullsEye extends Symb {
   copy() {
     return new BullsEye();
   }
+  categories() {
+    return [CATEGORY_UNBUYABLE];
+  }
   description() {
     return 'neighboring rolls always succeed';
   }
@@ -218,7 +224,7 @@ export class Clover extends Symb {
     return new Clover();
   }
   categories() {
-    return [CATEGORY_VEGETABLES, CATEGORY_FOOD];
+    return [CATEGORY_VEGETABLES, CATEGORY_FOOD, CATEGORY_UNBUYABLE];
   }
   description() {
     return '+1% luck';
@@ -315,7 +321,7 @@ export class Corn extends Symb {
     }
   }
   categories() {
-    return [CATEGORY_VEGETABLES, CATEGORY_FOOD];
+    return [CATEGORY_VEGETABLES, CATEGORY_FOOD, CATEGORY_UNBUYABLE];
   }
   description() {
     return '💵20<br>10% chance: pops 🍿';
@@ -345,6 +351,9 @@ export class Diamond extends Symb {
     }
     await this.addMoney(game, coords.length * 5, x, y);
   }
+  categories() {
+    return [CATEGORY_UNBUYABLE];
+  }
   description() {
     return '💵6<br>💵5 for each neighboring 💎';
   }
@@ -370,6 +379,9 @@ export class Dice extends Symb {
       ]);
     }
   }
+  categories() {
+    return [CATEGORY_UNBUYABLE];
+  }
   description() {
     return '1% chance: 💵52';
   }
@@ -394,7 +406,7 @@ export class Dragon extends Symb {
     ]);
   }
   categories() {
-    return [CATEGORY_ANIMAL];
+    return [CATEGORY_ANIMAL, CATEGORY_UNBUYABLE];
   }
   description() {
     return '💵42';
@@ -425,7 +437,7 @@ export class Mango extends Symb {
     }
   }
   categories() {
-    return [CATEGORY_FRUIT, CATEGORY_FOOD];
+    return [CATEGORY_FRUIT, CATEGORY_FOOD, CATEGORY_UNBUYABLE];
   }
   description() {
     return 'x2 to neighboring fruit';
@@ -456,7 +468,7 @@ export class Pineapple extends Symb {
     ]);
   }
   categories() {
-    return [CATEGORY_FRUIT, CATEGORY_FOOD];
+    return [CATEGORY_FRUIT, CATEGORY_FOOD, CATEGORY_UNBUYABLE];
   }
   description() {
     return '💵12<br>💵-2 for all non-empty neighbors';
@@ -496,7 +508,7 @@ export class Popcorn extends Symb {
     return this.timeToLive - this.turns;
   }
   categories() {
-    return [CATEGORY_FOOD];
+    return [CATEGORY_FOOD, CATEGORY_UNBUYABLE];
   }
   description() {
     return '💵17<br>disappears after 2-5 turns';
@@ -532,6 +544,9 @@ export class Tree extends Symb {
       await grow();
       await grow();
     }
+  }
+  categories() {
+    return [CATEGORY_UNBUYABLE];
   }
   counter(game) {
     return 3 - (this.turns % 3);
