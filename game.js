@@ -36,18 +36,21 @@ export class Game {
       scoreContainer.classList.add('scoreContainer');
       const scoreDiv = document.createElement('div');
       scoreDiv.classList.add('score');
-      scoreDiv.innerText = '💵' + this.inventory.money;
+      scoreDiv.innerText = '⏰' + this.inventory.turns;
       scoreContainer.appendChild(scoreDiv);
       document.querySelector('.game').appendChild(scoreContainer);
       await Util.animate(scoreDiv, 'scoreIn', 0.4);
     }
     let trophy = '💩';
-    for (const [requirement, reward] of Object.entries(this.gameSettings.resultLookup)) {
-      if (this.inventory.money >= requirement) {
-        trophy = reward;
-        break;
-      }
+    if (this.inventory.turns > 0) {
+      trophy = '🏆';
     }
+    // for (const [requirement, reward] of Object.entries(this.gameSettings.resultLookup)) {
+    //   if (this.inventory.money >= requirement) {
+    //     trophy = reward;
+    //     break;
+    //   }
+    // }
     {
       this.progression.postResultAndAdvance(this.inventory.money, trophy);
       const trophyContainer = document.createElement('div');

@@ -23,7 +23,7 @@ export class GameSettings {
     this.boardX = boardX || 5;
     this.boardY = boardY || 5;
     this.gameLength = gameLength || 50;
-    this.startingSet = startingSetString || '🍒🍒🍒🪙🍀🧙‍♂️';
+    this.startingSet = startingSetString || '🍒🍒🍒🪙🍀🧙‍♂️🗡️';
     this.symbolSources = symbolSources || ['./symbol.js', './boss-symbols.js'];
     this.resultLookup = resultLookup || {
       // NOTE: These temporarily are assumed to be sorted such that the hardest score is first.
