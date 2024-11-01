@@ -12,7 +12,7 @@ export class Game {
     this.settings = settings;
     this.catalog = catalog;
     this.inventory = new Inventory(this.settings, this.catalog);
-    this.inventory.update();
+    this.inventory.updateSymbolDisplay();
     this.board = new Board(this);
     this.shop = new Shop(this.catalog);
     this.rolling = false;

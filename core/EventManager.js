@@ -9,6 +9,8 @@ class EventManager {
     
     // Map for single-use event listeners
     this.singleUseListeners = new Map();
+
+    this.debugMode = true;
   }
  
   /**
@@ -87,6 +89,11 @@ class EventManager {
           console.error(`Error in single-use handler for ${eventType}:`, error);
         }
       });
+    }
+
+    if (this.debugMode) {
+      // console.log('Event dispatch called from:', new Error().stack);
+      console.log(`Event dispatched: ${eventType}, Data:`, eventData);
     }
   }
  
